@@ -112,7 +112,7 @@ Dataset dapat diunduh dari [Kaggle - Vehicle Dataset from Cardekho](https://www.
     - Teknik: Missing value dihapus menggunakan `dropna()` dan data duplikat dihapus menggunakan `drop_duplicates()`.
     - Alasan dan Kegunaan: Data yang tidak lengkap atau duplikat dapat menyebabkan model bias atau overfitting. Menghapusnya memastikan model lebih stabil dan akurat dengan data yang bersih dan representatif.
 
-2. Menghapus kolom data torque dari dataset
+2. Menghapus kolom data **torque** dari dataset
 
     - Teknik: Kolom dihapus menggunakan `drop(['torque'], axis=1, inplace=True)`.
     - Alasan dan Kegunaan: Kolom ini kurang mempresentasikan nilai yang tepat. Sehingga dengan menghapusnya dapat mengurangi kompleksitas dan kebisingan dalam model, meningkatkan performa dan akurasi.
@@ -243,9 +243,8 @@ Dari ketiga model, model dengan nilai MSE terendah dan R^2 tertinggi akan dipili
 
 1. Mean Squared Error (MSE): Mengukur rata-rata dari kuadrat kesalahan antara nilai aktual dan prediksi.
     - Formula:
-        $$
-        \text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
-        $$
+
+        ![Rumus MSE](https://latex.codecogs.com/svg.latex?%5Ctext%7BMSE%7D%20%3D%20%5Cfrac%7B1%7D%7Bn%7D%20%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%20%28y_i%20-%20%5Chat%7By_i%7D%29%5E2)
 
         di mana:
         - n adalah jumlah data
@@ -255,10 +254,9 @@ Dari ketiga model, model dengan nilai MSE terendah dan R^2 tertinggi akan dipili
 
 2. R-squared (R²): Mengukur proporsi variansi dalam variabel dependen yang dapat dijelaskan oleh variabel independen.
     - Formula:
-        $$
-        R^2 = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y}_i)^2}{\sum_{i=1}^{n} (y_i - \bar{y})^2}
-        $$
-
+    
+        ![Rumus R²](https://latex.codecogs.com/svg.latex?R%5E2%20%3D%201%20-%20%5Cfrac%7B%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%20%28y_i%20-%20%5Chat%7By_i%7D%29%5E2%7D%7B%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%20%28y_i%20-%20%5Cbar%7By%7D%29%5E2%7D)
+        
         di mana:
 
         - n adalah jumlah data
@@ -290,7 +288,7 @@ Dari ketiga model, model dengan nilai MSE terendah dan R^2 tertinggi akan dipili
 **Feature Importance**
 
 <!-- ![feature-importance-image](assets/feature-importance.png) -->
-![models-result](https://github.com/user-attachments/assets/4c923a7b-b938-4d44-b3d3-c3e0a7382252)
+![feature-importance](https://github.com/user-attachments/assets/e4262f5a-2c7d-4430-84db-05c55ad3a4bf)
 
 ## Kesimpulan
 
