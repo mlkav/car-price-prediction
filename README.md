@@ -1,8 +1,6 @@
 # Laporan Proyek Machine Learning - Car Price Prediction by Maulana Kavaldo
 
-<div style="text-align: center;">
-    <img src="assets/car-price-prediction.webp" alt="" height="400">
-</div>
+![car-price-prediction-image](assets/car-price-prediction.webp)
 
 ## Domain Proyek
 
@@ -64,9 +62,7 @@ Dataset dapat diunduh dari [Kaggle - Vehicle Dataset from Cardekho](https://www.
 
 1. Distribusi data kategorikal.
 
-<div style="text-align: center;">
-    <img src="assets/eda.png" alt="eda" style="height: 350px;">
-</div>
+    ![eda-image](assets/eda.png)
 
     Pada grafik menunjukkan lima merek kendaraan dengan jumlah terbanyak, dengan merek teratas memiliki sekitar 2000 kendaraan. 
 
@@ -76,18 +72,14 @@ Dataset dapat diunduh dari [Kaggle - Vehicle Dataset from Cardekho](https://www.
 
 2. Distribusi data numerical
 
-<div style="text-align: center;">
-    <img src="assets/bar-numerical.png" alt="" height="400">
-</div>
+    ![bar-numarical-image](assets/bar-numerical.png)
 
     Distribusi harga jual mobil menunjukkan skewness positif, dengan sebagian besar mobil dijual dengan harga lebih rendah dan beberapa dengan harga sangat tinggi. Kapasitas mesin mobil cenderung simetris atau sedikit skewness negatif, menunjukkan distribusi yang merata. Pada BAP juga menunjukkan skewness positif, dengan sebagian besar mobil memiliki tenaga kuda yang lebih rendah. Efisiensi bahan bakar memiliki skewness negatif, menunjukkan sebagian besar mobil memiliki efisiensi yang baik. Usia mobil menunjukkan skewness positif, dengan sebagian besar mobil berusia lebih muda.
 
 
 3. Outlier Detection:
 
-<div style="text-align: center;">
-    <img src="assets/outlier.png" alt="" height="400">
-</div>
+    ![outlier-images](assets/outlier.png)
 
     Sebagian besar variabel menunjukkan adanya outliers, yang berarti ada kendaraan-kendaraan tertentu yang sangat berbeda dari mayoritas lainnya dalam hal harga jual, jarak tempuh, efisiensi bahan bakar, kapasitas mesin, tenaga mesin, dan umur.
 
@@ -96,19 +88,14 @@ Dataset dapat diunduh dari [Kaggle - Vehicle Dataset from Cardekho](https://www.
 
 4. Heatmap Korelasi
 
-<div style="text-align: center;">
-    <img src="assets/corr-maps.png" alt="" height="400">
-</div>
+    ![corr-maps](assets/corr-maps.png)
 
     Tidak terlihat adanya korelasi yang cukup besar pada data. Sehingga tidak diperlukan penghapusan atau pengurangan fitur.
 
 
 5. Hubungan dua variabel secara bersamaan dan pola distribusi antara beberapa variabel.
 
-<div style="text-align: center;">
-    <img src="assets/pair-plot.png" alt="" height="600">
-</div>
-
+    ![pair-plot](assets/pair-plot.png)
 
 ## Data Preparation
 
@@ -135,9 +122,7 @@ Dataset dapat diunduh dari [Kaggle - Vehicle Dataset from Cardekho](https://www.
 
 ## Modeling
 
-<div style="text-align: center;">
-    <img src="assets/flow-ml.png" alt="" height="200">
-</div>
+![flow-ml](assets/flow-ml.png) 
 
 Setelah data melalui tahap preprocessing, kemudian masuk dalam modeling dengan tahapan:
 
@@ -195,9 +180,7 @@ Untuk setiap model, dilakukan tuning hyperparameter menggunakan GridSearchCV kec
 
 ### Prediksi dan Visualisasi:
 
-<div style="text-align: center;">
-    <img src="assets/models-result.png" alt="" height="300">
-</div>
+![models-result-image](assets/models-result.png)
 
 Setelah dilakukan pemodelan sebelumnya, pada tahap ini dilakukan: 
 
@@ -267,10 +250,7 @@ Dari ketiga model, model dengan nilai MSE terendah dan R^2 tertinggi akan dipili
 
 **Feature Importance**
 
-<div style="text-align: center;">
-<img src="assets/feature-importance.png" alt="" height="300">
-</div>
-
+![feature-importance-image](assets/feature-importance.png)
 
 ## Kesimpulan
 
