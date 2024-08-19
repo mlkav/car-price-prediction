@@ -64,9 +64,9 @@ Dataset dapat diunduh dari [Kaggle - Vehicle Dataset from Cardekho](https://www.
 
 1. Distribusi data kategorikal.
 
-    <div style="text-align: center;">
-        <img src="assets/eda.png" alt="eda" style="height: 350px;">
-    </div>
+<div style="text-align: center;">
+    <img src="assets/eda.png" alt="eda" style="height: 350px;">
+</div>
 
     Pada grafik menunjukkan lima merek kendaraan dengan jumlah terbanyak, dengan merek teratas memiliki sekitar 2000 kendaraan. 
 
@@ -76,18 +76,18 @@ Dataset dapat diunduh dari [Kaggle - Vehicle Dataset from Cardekho](https://www.
 
 2. Distribusi data numerical
 
-    <div style="text-align: center;">
-        <img src="assets/bar-numerical.png" alt="" height="400">
-    </div>
+<div style="text-align: center;">
+    <img src="assets/bar-numerical.png" alt="" height="400">
+</div>
 
     Distribusi harga jual mobil menunjukkan skewness positif, dengan sebagian besar mobil dijual dengan harga lebih rendah dan beberapa dengan harga sangat tinggi. Kapasitas mesin mobil cenderung simetris atau sedikit skewness negatif, menunjukkan distribusi yang merata. Pada BAP juga menunjukkan skewness positif, dengan sebagian besar mobil memiliki tenaga kuda yang lebih rendah. Efisiensi bahan bakar memiliki skewness negatif, menunjukkan sebagian besar mobil memiliki efisiensi yang baik. Usia mobil menunjukkan skewness positif, dengan sebagian besar mobil berusia lebih muda.
 
 
 3. Outlier Detection:
 
-    <div style="text-align: center;">
-        <img src="assets/outlier.png" alt="" height="400">
-    </div>
+<div style="text-align: center;">
+    <img src="assets/outlier.png" alt="" height="400">
+</div>
 
     Sebagian besar variabel menunjukkan adanya outliers, yang berarti ada kendaraan-kendaraan tertentu yang sangat berbeda dari mayoritas lainnya dalam hal harga jual, jarak tempuh, efisiensi bahan bakar, kapasitas mesin, tenaga mesin, dan umur.
 
@@ -96,18 +96,18 @@ Dataset dapat diunduh dari [Kaggle - Vehicle Dataset from Cardekho](https://www.
 
 4. Heatmap Korelasi
 
-    <div style="text-align: center;">
+<div style="text-align: center;">
     <img src="assets/corr-maps.png" alt="" height="400">
-    </div>
+</div>
 
     Tidak terlihat adanya korelasi yang cukup besar pada data. Sehingga tidak diperlukan penghapusan atau pengurangan fitur.
 
 
 5. Hubungan dua variabel secara bersamaan dan pola distribusi antara beberapa variabel.
 
-    <div style="text-align: center;">
+<div style="text-align: center;">
     <img src="assets/pair-plot.png" alt="" height="600">
-    </div>
+</div>
 
 
 ## Data Preparation
@@ -119,7 +119,9 @@ Dataset dapat diunduh dari [Kaggle - Vehicle Dataset from Cardekho](https://www.
 3. Menghapus unit (satuan) pada data mileage, engine dan max_power.
 4. Melakukan filter agar outlier tidak masuk ke dalam pemodelan.
 5. Menambahkan dua fitur baru, yaitu brand yang diambil dari name, dan age yang dihitung dari perbedaan antara tahun sekarang dengan year.
-6. Encoding Categorical Variables: Mengonversi variabel kategorikal seperti fuel, seller_type, transmission, dan owner ke dalam format numerik menggunakan OrdinalEncoder agar dapat menampilkan feature importance.
+6. Data dibagi menjadi 80% untuk pelatihan (training) dan 20% untuk pengujian (testing). Ini dilakukan menggunakan fungsi train_test_split, di mana variabel independen (fitur) disimpan di dalam X, dan variabel dependen (target) disimpan di dalam y.
+7. Mengonversi variabel kategorikal seperti fuel, seller_type, transmission, dan owner ke dalam format numerik menggunakan OrdinalEncoder agar dapat menampilkan feature importance.
+
 
 ### Alasan untuk Tahapan Data Preparation:
 
@@ -128,39 +130,26 @@ Dataset dapat diunduh dari [Kaggle - Vehicle Dataset from Cardekho](https://www.
 3. Menjadikan kolom mileage, engine dan max_power menjadi data numerik
 4. Menghapus outlier dari dataset sebelum pemodelan membantu meningkatkan akurasi dan kestabilan model, mengurangi bias dan varians, serta memastikan asumsi model dipenuhi untuk hasil yang lebih representatif dan dapat diandalkan.
 5. Feature engineering bertujuan untuk menambahkan informasi tambahan yang relevan dan dapat meningkatkan performa model.
-6. Encoding variabel kategorikal diperlukan karena algoritma machine learning tidak dapat bekerja langsung dengan data non-numerik.
+6. Pembagian 80:20 cukup umum digunakan. Pembagian ini memastikan model dapat belajar dari sebagian besar data dan diuji pada data baru untuk mengevaluasi performanya. Ini membantu mengukur seberapa baik model generalisasi terhadap data yang tidak terlihat sebelumnya.
+7. Encoding variabel kategorikal diperlukan karena algoritma machine learning tidak dapat bekerja langsung dengan data non-numerik.
 
 ## Modeling
 
-Setelah data dipisahkan dari data outlier, kemudian masuk dalam modeling dengan tahapan:
+<div style="text-align: center;">
+    <img src="assets/flow-ml.png" alt="" height="200">
+</div>
 
-1. Pembagian Data
+Setelah data melalui tahap preprocessing, kemudian masuk dalam modeling dengan tahapan:
 
-    Data dibagi menjadi 80% untuk pelatihan (training) dan 20% untuk pengujian (testing). Ini dilakukan menggunakan fungsi train_test_split, di mana variabel independen (fitur) disimpan di dalam X, dan variabel dependen (target) disimpan di dalam y.
-
-2. Identifikasi Fitur
-
-    Fitur numerik dan kategorikal diidentifikasi menggunakan metode `select_dtypes`. Fitur numerik yang termasuk tipe data int64 dan float64 disimpan dalam variabel numerical_features, sedangkan fitur kategorikal yang termasuk tipe data object dan category disimpan dalam categorical_features.
-
-3. Preprocessing pada data:
-
-    - Fitur Numerik: Fitur numerik diolah melalui pipeline yang terdiri dari dua langkah. Pertama, jika terdapat nilai yang hilang diisi menggunakan nilai tengah (median) dari kolom tersebut dengan SimpleImputer. Kemudia, fitur tersebut diskalakan menggunakan StandardScaler agar distribusinya memiliki rata-rata 0 dan standar deviasi 1.
-
-    - Fitur Kategorikal: Fitur kategorikal diolah dengan menggantikan nilai yang hilang dengan kata "missing" menggunakan SimpleImputer, lalu di-encode secara ordinal dengan OrdinalEncoder, di mana kategori yang tidak diketahui (belum pernah muncul sebelumnya) akan di-encode sebagai -1.
-
-4. Pembuatan Pipeline: 
-
-    Fungsi `create_pipeline` didefinisikan untuk membuat pipeline, yang menggabungkan tahap preprocessing dengan model regresi yang dipilih. Pipeline ini memastikan bahwa semua tahap preprocessing dilakukan setiap kali model dilatih atau memprediksi.
-
-5. Pada uji coba dilakukan dengan 3 model regresi dengan dan tanpa hyperparameter (GridSearch). Untuk para meter yang digunakan akan dijelaskan pada sub improvement mengenai parameter-parameter apa saja yang digunakan.
+1. Pada uji coba dilakukan dengan 3 model regresi dengan dan tanpa hyperparameter (GridSearch). Untuk para meter yang digunakan akan dijelaskan pada sub improvement mengenai parameter-parameter apa saja yang digunakan.
 
     - Linear Regression
     - Random Forest
     - Gradient Boosting
 
-6. Untuk setiap model, pipeline dilatih (fit) menggunakan data pelatihan (X_train, y_train), lalu digunakan untuk memprediksi (predict) nilai dari data pengujian (X_test). Hasil prediksi dievaluasi dengan menghitung nilai Mean Squared Error (MSE) dan koefisien determinasi (R²) untuk mengukur seberapa baik model tersebut.
+2. Untuk setiap model, pipeline dilatih (fit) menggunakan data pelatihan (X_train, y_train), lalu digunakan untuk memprediksi (predict) nilai dari data pengujian (X_test). Hasil prediksi dievaluasi dengan menghitung nilai Mean Squared Error (MSE) dan koefisien determinasi (R²) untuk mengukur seberapa baik model tersebut.
 
-7. Semua hasil evaluasi dikumpulkan dalam bentuk DataFrame (results_df) yang menyajikan perbandingan performa model-model tersebut berdasarkan MSE dan R².
+3. Semua hasil evaluasi dikumpulkan dalam bentuk DataFrame (results_df) yang menyajikan perbandingan performa model-model tersebut berdasarkan MSE dan R².
 
 
 ### Model Machine Learning:
@@ -182,22 +171,6 @@ Setelah data dipisahkan dari data outlier, kemudian masuk dalam modeling dengan 
 ### Improvement:
 
 Untuk setiap model, dilakukan tuning hyperparameter menggunakan GridSearchCV kecuali Linear Regression untuk mencari kombinasi terbaik. Karena model Linear Regression tidak mendukung GridSearch. Parameter yang digunakan pada proyek ini yaitu:
-
-```python
-param_grids = {
-    'Linear Regression': {},
-    'Random Forest': {
-        'regressor__n_estimators': [50, 100, 200],
-        'regressor__max_depth': [None, 10, 20, 30],
-        'regressor__min_samples_split': [2, 5, 10],
-    },
-    'Gradient Boosting': {
-        'regressor__n_estimators': [50, 100, 200],
-        'regressor__learning_rate': [0.01, 0.1, 0.2],
-        'regressor__max_depth': [3, 5, 7],
-    }
-}
-```
 
 1. Linear Regression
 
@@ -223,7 +196,7 @@ param_grids = {
 ### Prediksi dan Visualisasi:
 
 <div style="text-align: center;">
-<img src="assets/models-result.png" alt="" height="300">
+    <img src="assets/models-result.png" alt="" height="300">
 </div>
 
 Setelah dilakukan pemodelan sebelumnya, pada tahap ini dilakukan: 
@@ -310,7 +283,7 @@ Dari ketiga model, model dengan nilai MSE terendah dan R^2 tertinggi akan dipili
 
 [^1]: Library Automotive of Congress. "Global Automobile Industry".  Retrieved from [https://guides.loc.gov/automotive-industry/global](https://guides.loc.gov/automotive-industry/global) at August 18th, 2024.
 
-[^2]: Saini. PS  and Rani. Lekha. "Performance Evaluation of Popular Machine Learning Models for Used Car Price Prediction". 2023. ICDAI. [Link Available](https://link.springer.com/chapter/10.1007/978-981-99-3878-0_49)
+[^2]: Prabaljeet Singh Saini & Lekha Rani. "Performance Evaluation of Popular Machine Learning Models for Used Car Price Prediction". 2023. ICDAI. [Link Available](https://link.springer.com/chapter/10.1007/978-981-99-3878-0_49)
 
 [^3]: Ahmad. Muhammad, et al. "Car Price Prediction using Machine Learning". 2024. IEEE. DOI: [10.1109/I2CT61223.2024.10544124](https://ieeexplore.ieee.org/abstract/document/10544124). [Link Available](https://ieeexplore.ieee.org/abstract/document/10544124)
 
