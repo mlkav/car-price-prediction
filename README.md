@@ -310,7 +310,7 @@ Dari ketiga model, model dengan nilai MSE terendah dan R^2 tertinggi akan dipili
 
 [^1]: Library Automotive of Congress. "Global Automobile Industry".  Retrieved from [https://guides.loc.gov/automotive-industry/global](https://guides.loc.gov/automotive-industry/global) at August 18th, 2024.
 
-[^2]: Prabaljeet Singh Saini & Lekha Rani. "Performance Evaluation of Popular Machine Learning Models for Used Car Price Prediction". 2023. ICDAI. [Link Available](https://link.springer.com/chapter/10.1007/978-981-99-3878-0_49)
+[^2]: Saini. PS  and Rani. Lekha. "Performance Evaluation of Popular Machine Learning Models for Used Car Price Prediction". 2023. ICDAI. [Link Available](https://link.springer.com/chapter/10.1007/978-981-99-3878-0_49)
 
 [^3]: Ahmad. Muhammad, et al. "Car Price Prediction using Machine Learning". 2024. IEEE. DOI: [10.1109/I2CT61223.2024.10544124](https://ieeexplore.ieee.org/abstract/document/10544124). [Link Available](https://ieeexplore.ieee.org/abstract/document/10544124)
 
