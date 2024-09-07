@@ -1,4 +1,10 @@
-# Laporan Proyek Machine Learning - Car Price Prediction by Maulana Kavaldo
+*Created: 17/08/2024*
+
+[![Open Notebook](https://img.shields.io/badge/Open_Notebook!-blue?logo=jupyter)](/car-price-prediction/notebook.html)
+
+---
+
+# Car Price Prediction
 
 <!-- ![car-price-prediction-image](assets/car-price-prediction.webp) -->
 ![car-price-prediction ](https://github.com/user-attachments/assets/1552650a-5a30-4994-8c25-2d33b3ab59d2)
@@ -297,7 +303,7 @@ Dari ketiga model, model dengan nilai MSE terendah dan R^2 tertinggi akan dipili
 - Berdasarkan hasil evaluasi dengan dan tanpa perbaikan menggunakan GridSearch, peningkatan kinerja model Gradient Boosting hanya selisih 1%. Hal ini menunjukkan bahwa model default saja sudah sangat baik dalam memberikan hasil terbaik, dengan nilai MSE yang rendah dan R² yang tinggi, sehingga dipilih sebagai model final untuk memprediksi harga jual kendaraan.
 
 
-## Referensi
+### Referensi
 
 [^1]: Library Automotive of Congress. "Global Automobile Industry".  Retrieved from [https://guides.loc.gov/automotive-industry/global](https://guides.loc.gov/automotive-industry/global) at August 18th, 2024.
 
