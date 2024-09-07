@@ -1,6 +1,7 @@
 *Created: 17/08/2024*
 
 [![Open Notebook](https://img.shields.io/badge/Open_Notebook!-blue?logo=jupyter)](/car-price-prediction/notebook.html)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin)](https://www.linkedin.com/in/maulana-kavaldo/)
 
 ---
 
