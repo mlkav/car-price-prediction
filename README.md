@@ -1,4 +1,4 @@
-*Created: 17/08/2024*
+<!-- *Created: 17/08/2024* -->
 
 ![created](https://img.shields.io/badge/created-17/08/2024-blue)
 [![Open Notebook](https://img.shields.io/badge/Open_Notebook!-blue?logo=jupyter)](/car-price-prediction/notebook.html)
