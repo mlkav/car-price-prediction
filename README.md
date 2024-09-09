@@ -1,6 +1,11 @@
 ![created](https://img.shields.io/badge/created-17/08/2024-blue)
 [![Open Notebook](https://img.shields.io/badge/Open_Notebook!-blue?logo=jupyter)](/car-price-prediction/notebook.html)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin)](https://www.linkedin.com/in/maulana-kavaldo/)
+<a href="https://www.linkedin.com/in/maulana-kavaldo/" target="_blank">
+  <img src="https://img.shields.io/badge/LinkedIn-blue?logo=linkedin" alt="LinkedIn">
+</a>
+<a href="https://www.dicoding.com/users/mkavaldo/academies" target="_blank">
+  <img src="https://img.shields.io/badge/Dicoding_Profile-blue?logo=browser" alt="Dicoding Profile">
+</a>
 
 ---
 
